@@ -4,6 +4,7 @@ const fs = require('fs');
 const pets = require('./pets.json');
 let progress = {};
 const progressFilePath = './progress.json';
+
 if (fs.existsSync(progressFilePath)) {
     progress = JSON.parse(fs.readFileSync(progressFilePath, 'utf8'));
 }
@@ -48,7 +49,7 @@ function initializeUserProgressIfNotPresent(username) {
             },
             list: {
                 name: "",
-                current_tasks:0,
+                current_tasks: 0,
                 total_tasks: 0,
                 sublist: []
             }
@@ -65,9 +66,10 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
     const petCommandPattern = /^!pet$/;
     const feedCommandPattern = /^!feed (\w+)$/;
     const listCommandPattern = /^!list "([^"]+)" (\d+)$/;
-    const sublistCommandPattern = /^!sublist "([^"]+)" "([^"]+)" (\d+)$/;
-    const incrementListCommandPattern = /^!\+\+l$/;
+    const sublistCommandPattern = /^!sublist "([^"]+)" (\d+)$/;
+    const incrementListCommandPattern = /^!l\+\+$/;
     const listViewCommandPattern = /^!list$/;
+
     const command = message.split(' ')[0];
 
     switch (true) {
@@ -76,9 +78,11 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
             initializeUserProgressIfNotPresent(usernameProgress);
             if (progress[usernameProgress]) {
                 const userProgress = progress[usernameProgress];
-                messageDispatcher(pets[userProgress.pet][userProgress.actual_level])
+                messageDispatcher(`📊 **Progress for ${usernameProgress}:**\n` +
+                    `  - **Level:** ${userProgress.pet.level}\n` +
+                    `  - **XP:** ${userProgress.pet.actual_xp}/${userProgress.pet.total_xp}`);
             } else {
-                messageDispatcher(`No progress found for username: ${usernameProgress}`)
+                messageDispatcher(`❌ **No progress found for username: ${usernameProgress}**`);
             }
             break;
 
@@ -88,39 +92,38 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
             initializeUserProgressIfNotPresent(currentUsername);
             if (progress[usernameForEmoji]) {
                 progress[usernameForEmoji].emoji = emoji;
-
                 fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
-                messageDispatcher(`Emoji updated for ${usernameForEmoji}: ${emoji}`);
+                messageDispatcher(`✨ **Emoji updated for ${usernameForEmoji}:** ${emoji}`);
             } else {
-                messageDispatcher(`No progress found for username: ${usernameForEmoji}`)
+                messageDispatcher(`❌ **No progress found for username: ${usernameForEmoji}**`);
             }
             break;
 
         case inventoryCommandPattern.test(message):
-            const usernameForInventory = currentUsername
+            const usernameForInventory = currentUsername;
             initializeUserProgressIfNotPresent(usernameForInventory);
             if (progress[usernameForInventory]) {
                 const userInventory = progress[usernameForInventory].inventory;
-                let inventoryStr = `Inventory for ${usernameForInventory}: `;
+                let inventoryStr = `🎒 **Inventory for ${usernameForInventory}:**\n`;
                 for (const [item, quantity] of Object.entries(userInventory)) {
-                    inventoryStr += `${item}: ${quantity}, `;
+                    inventoryStr += `  - **${item}:** ${quantity}\n`;
                 }
-                messageDispatcher(inventoryStr.slice(0, -2));
+                messageDispatcher(inventoryStr.trim());
             } else {
-                messageDispatcher(`No progress found for username: ${usernameForInventory}`)
+                messageDispatcher(`❌ **No progress found for username: ${usernameForInventory}**`);
             }
             break;
+
         case petnameCommandPattern.test(message):
             const [, petName] = message.match(petnameCommandPattern);
             const usernameForPetName = currentUsername;
             initializeUserProgressIfNotPresent(currentUsername);
             if (progress[usernameForPetName] && progress[usernameForPetName].pet) {
                 progress[usernameForPetName].pet.name = petName;
-
                 fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
-                messageDispatcher(`Pet name updated for ${usernameForPetName}: ${petName}`)
+                messageDispatcher(`🦴 **Pet name updated for ${usernameForPetName}:** ${petName}`);
             } else {
-                messageDispatcher(`No pet found for username: ${usernameForPetName}`)
+                messageDispatcher(`❌ **No pet found for username: ${usernameForPetName}**`);
             }
             break;
 
@@ -128,17 +131,16 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
             const usernameForPet = currentUsername;
             if (progress[usernameForPet] && progress[usernameForPet].pet) {
                 const pet = progress[usernameForPet].pet;
-                let petStr = `Pet details for ${usernameForPet}: \n`;
+                let petStr = `🐾 **Pet details for ${usernameForPet}:**\n`;
                 for (const [key, value] of Object.entries(pet)) {
-                    petStr += `${key}: ${value}, `;
+                    petStr += `  - **${key}:** ${value}\n`;
                 }
-                let petStatusMessage = petStr.slice(0, -2);
-                let currentUserPetId = progress[usernameForPet].pet.id;
-                let currentUserPetLevel = progress[usernameForPet].pet.level;
-                messageDispatcher(petStatusMessage)
+                messageDispatcher(petStr.trim());
+                let currentUserPetId = pet.id;
+                let currentUserPetLevel = pet.level;
                 messageDispatcher(pets[currentUserPetId][currentUserPetLevel])
             } else {
-                messageDispatcher(`No pet found for username: ${usernameForPet}`)
+                messageDispatcher(`❌ **No pet found for username: ${usernameForPet}**`);
             }
             break;
 
@@ -151,7 +153,6 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
                     progress[usernameForFeed].inventory[foodToFeed] > 0) {
 
                     progress[usernameForFeed].inventory[foodToFeed]--;
-
                     let hungerIncrement = 0;
                     switch (foodToFeed) {
                         case 'froot_loops':
@@ -164,19 +165,19 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
                             hungerIncrement = 12;
                             break;
                         default:
-                            messageDispatcher(`Unknown food item: ${foodToFeed}`)
+                            messageDispatcher(`⚠️ **Unknown food item: ${foodToFeed}**`);
                             return;
                     }
 
                     progress[usernameForFeed].pet.hunger = Math.min(progress[usernameForFeed].pet.hunger + hungerIncrement, 100);
-
                     fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
-                    messageDispatcher(`Food item ${foodToFeed} used for ${usernameForFeed}. New hunger value: ${progress[usernameForFeed].pet.hunger}`)
+                    messageDispatcher(`🍽️ **Food item ${foodToFeed} used for ${usernameForFeed}.**\n` +
+                        `  - **New Hunger Value:** ${progress[usernameForFeed].pet.hunger}`);
                 } else {
-                    messageDispatcher(`No ${foodToFeed} left in inventory or inventory not found for ${usernameForFeed}`)
+                    messageDispatcher(`❌ **No ${foodToFeed} left in inventory or inventory not found for ${usernameForFeed}**`);
                 }
             } else {
-                messageDispatcher(`No progress found for username: ${usernameForFeed}`)
+                messageDispatcher(`❌ **No progress found for username: ${usernameForFeed}**`);
             }
             break;
 
@@ -190,31 +191,32 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
                     total_tasks: parseInt(totalTasks),
                     sublist: []
                 };
-
                 fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
-                messageDispatcher(`List created for ${usernameForList}: ${JSON.stringify(progress[usernameForList].list, null, 2)}`)
+                messageDispatcher(`📝 **List created for ${usernameForList}:**\n` +
+                    `  - **List Name:** ${listName}\n` +
+                    `  - **Total Tasks:** ${totalTasks}`);
             } else {
-                messageDispatcher(`No progress found for username: ${usernameForList}`)
+                messageDispatcher(`❌ **No progress found for username: ${usernameForList}**`);
             }
             break;
 
         case sublistCommandPattern.test(message):
-            const [, listNameForSublist, sublistName, sublistTotalTasks] = message.match(sublistCommandPattern);
+            const [, sublistName, sublistTotalTasks] = message.match(sublistCommandPattern);
             const usernameForSublist = currentUsername;
             initializeUserProgressIfNotPresent(currentUsername);
-            if (progress[usernameForSublist] && progress[usernameForSublist].list &&
-                progress[usernameForSublist].list.name === listNameForSublist) {
+            if (progress[usernameForSublist] && progress[usernameForSublist].list) {
 
                 progress[usernameForSublist].list.sublist.push({
                     name: sublistName,
                     current_tasks: 0,
                     total_tasks: parseInt(sublistTotalTasks)
                 });
-
                 fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
-                messageDispatcher(`Sublist item added to ${listNameForSublist} for ${usernameForSublist}: ${JSON.stringify(progress[usernameForSublist].list.sublist, null, 2)}`)
+                messageDispatcher(`🔢 **Sublist item added to ${progress[usernameForSublist].list.name} for ${usernameForSublist}:**\n` +
+                    `  - **Name:** ${sublistName}\n` +
+                    `  - **Total Tasks:** ${sublistTotalTasks}`);
             } else {
-                messageDispatcher(`List ${listNameForSublist} not found for username: ${usernameForSublist}`)
+                messageDispatcher(`❌ **List not found for username: ${usernameForSublist}**`);
             }
             break;
 
@@ -232,13 +234,15 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
                             userList.current_tasks = userList.sublist.filter(item => item.current_tasks === item.total_tasks).length;
                             userList.total_tasks = userList.sublist.length;
                         }
-                        messageDispatcher(`Updated sublist item: ${JSON.stringify(firstSublistItem, null, 2)}`);
+                        messageDispatcher(`🔄 **Updated sublist item:**\n` +
+                            `  - **Name:** ${firstSublistItem.name}\n` +
+                            `  - **Current Tasks:** ${firstSublistItem.current_tasks}\n` +
+                            `  - **Total Tasks:** ${firstSublistItem.total_tasks}`);
                     } else {
-                        messageDispatcher(`No sublist item with current tasks < total tasks found. Incrementing list total tasks.`);
+                        messageDispatcher(`⚠️ **No sublist item with current tasks < total tasks found. Incrementing list total tasks.**`);
                         userList.total_tasks++;
                     }
                 } else {
-                    // If no sublist, increment the current_tasks of the list
                     if (userList.current_tasks === undefined) {
                         userList.current_tasks = 0;
                     }
@@ -247,15 +251,17 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
                         if (userList.current_tasks === userList.total_tasks) {
                             userList.total_tasks++;
                         }
-                        messageDispatcher(`Updated list current tasks: ${JSON.stringify(userList, null, 2)}`);
+                        messageDispatcher(`🔄 **Updated list current tasks:**\n` +
+                            `  - **Current Tasks:** ${userList.current_tasks}\n` +
+                            `  - **Total Tasks:** ${userList.total_tasks}`);
                     } else {
-                        messageDispatcher(`List current tasks have reached the total tasks.`);
+                        messageDispatcher(`⚠️ **List current tasks have reached the total tasks.**`);
                     }
                 }
 
                 fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
             } else {
-                messageDispatcher(`No progress found for username: ${usernameForIncrement}`);
+                messageDispatcher(`❌ **No progress found for username: ${usernameForIncrement}**`);
             }
             break;
 
@@ -264,24 +270,26 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
             initializeUserProgressIfNotPresent(currentUsername);
             if (progress[usernameForListView] && progress[usernameForListView].list) {
                 const userList = progress[usernameForListView].list;
-                let listStr = `List details for ${usernameForListView}:\nName: ${userList.name}\nCurrent Tasks: ${userList.current_tasks || 0}\nTotal Tasks: ${userList.total_tasks}`;
+                let listStr = `📋 List details for ${usernameForListView}:\n` +
+                    ` "${userList.name}" ${userList.current_tasks || 0}/${userList.total_tasks}`;
 
                 if (userList.sublist.length > 0) {
-                    listStr += `\nSublist:\n`;
+                    listStr += `\n  - Sublist:\n`;
                     userList.sublist.forEach(sublistItem => {
-                        listStr += `  - Name: ${sublistItem.name}, Current Tasks: ${sublistItem.current_tasks}, Total Tasks: ${sublistItem.total_tasks}\n`;
+                        listStr += ` "${sublistItem.name}" ${sublistItem.current_tasks}/${sublistItem.total_tasks}\n`;
                     });
                 } else {
-                    listStr += `\nSublist: Empty`;
+                    listStr += `\n  - **Sublist:** Empty`;
                 }
 
-                messageDispatcher(listStr);
+                messageDispatcher(listStr.trim());
             } else {
-                messageDispatcher(`No list found for username: ${usernameForListView}`);
+                messageDispatcher(`❌ **No list found for username: ${usernameForListView}**`);
             }
             break;
+
         default:
-            messageDispatcher(`Unknown command: ${message}`)
+            messageDispatcher(`⚠️ **Unknown command: ${message}**`);
             break;
     }
 }
@@ -289,7 +297,6 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
 function executePossibleAdminCommand(message, currentUsername, messageDispatcher) {
     const foodCommandPattern = /^!(froot_loops|bubbaloo|ferrero_rocher) (\w+)$/;
     const adoptCommandPattern = /^!adopt (\d+) (\w+) (\d{4}-\d{2}-\d{2})$/;
-    const command = message.split(' ')[0];
 
     switch (true) {
         case foodCommandPattern.test(message):
@@ -298,16 +305,16 @@ function executePossibleAdminCommand(message, currentUsername, messageDispatcher
             if (progress[usernameForFood]) {
                 if (progress[usernameForFood].inventory.hasOwnProperty(food)) {
                     progress[usernameForFood].inventory[food]++;
+                    fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
+                    messageDispatcher(`🍽️ **Food item ${food} incremented for ${usernameForFood}.**`);
                 } else {
-                    messageDispatcher(`Food item ${food} not found in inventory for ${usernameForFood}`)
+                    messageDispatcher(`❌ **Food item ${food} not found in inventory for ${usernameForFood}**`);
                 }
-
-                fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
-                messageDispatcher(`Food item ${food} incremented for ${usernameForFood}`)
             } else {
-                messageDispatcher(`No progress found for username: ${usernameForFood}`)
+                messageDispatcher(`❌ **No progress found for username: ${usernameForFood}**`);
             }
             break;
+
         case adoptCommandPattern.test(message):
             const [, id, usernameForAdopt, birthday] = message.match(adoptCommandPattern);
             initializeUserProgressIfNotPresent(usernameForAdopt);
@@ -322,15 +329,18 @@ function executePossibleAdminCommand(message, currentUsername, messageDispatcher
                     actual_xp: 0,
                     total_xp: 1000
                 };
-
                 fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
-                messageDispatcher(`Pet adopted for ${usernameForAdopt}: ${JSON.stringify(progress[usernameForAdopt].pet, null, 2)}`)
+                messageDispatcher(`🎉 **Pet adopted for ${usernameForAdopt}:**\n` +
+                    `  - **ID:** ${id}\n` +
+                    `  - **Type:** ${pets[id].type}\n` +
+                    `  - **Birthday:** ${birthday}`);
             } else {
-                messageDispatcher(`No progress found for username: ${usernameForAdopt}`)
+                messageDispatcher(`❌ **No progress found for username: ${usernameForAdopt} or pet ID ${id} not found**`);
             }
             break;
+
         default:
-            executePossibleUserCommand(message, currentUsername, messageDispatcher)
+            executePossibleUserCommand(message, currentUsername, messageDispatcher);
             break;
     }
 }
@@ -339,22 +349,21 @@ client.on('message', (channel, tags, message, self) => {
     if (self || tags['display-name'] === "Nightbot") return;
     let responseAlreadyGiven = false;
     console.log(`${tags['display-name']}: ${message}`);
-    if(tags['display-name'] === 'Gemdelle'){
 
-        return
+    if (tags['display-name'] === 'Gemdelle') {
+        executePossibleAdminCommand(message.toLowerCase(), tags['display-name'].toLowerCase(), (message) => {
+            console.log(message);
+            client.say(channel, `${message}`);
+            responseAlreadyGiven = true;
+        });
+        return;
     }
 
-    executePossibleAdminCommand(message.toLowerCase(), /*tags['display-name'].toLowerCase()*/"gemdelle", (message)=>{
-        console.log(message)
-        //client.say(channel, `${message}`)
-        responseAlreadyGiven = true;
-    })
-
-    // executePossibleUserCommand(message.toLowerCase(), tags['display-name'].toLowerCase(), (message)=>{
-    //     if (responseAlreadyGiven) return
-    //     console.log(message)
-    //     //client.say(channel, `${message}`)
-    // })
+    executePossibleUserCommand(message.toLowerCase(), tags['display-name'].toLowerCase(), (message) => {
+        if (responseAlreadyGiven) return;
+        console.log(message);
+        client.say(channel, `${message}`);
+    });
 });
 
 client.on('disconnected', (reason) => {
