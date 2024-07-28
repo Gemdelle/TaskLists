@@ -1,3 +1,24 @@
+@font-face {
+    font-family: 'blackwood-castle';
+    src: url('blackwood-castle.TTF') format('truetype');
+}
+  
+body {
+font-family: 'blackwood-castle', sans-serif;
+}
+  
+
+.instructions-container{
+    height: 37vw;
+    background-image: url(img/instructions.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .title{
     background-image: url(img/title.png);
     background-size: contain;
@@ -5,14 +26,6 @@
     background-repeat: no-repeat;
     width: 23vw;
     height: 20vw;
-}
-
-.instructions-container{
-    background-color: blue;
-    background-image: url(img/instructions.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
 }
 
 .pet-container{
@@ -23,16 +36,76 @@
 }
 
 .filters{
-    width: 23vw;
-    height: 2vw;
-    background-color: red;
+    width: 16vw;
+    height: 15vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    color: blanchedalmond;
+    margin-left: 1vw;
+    /* background-color: blue; */
 }
 
-.filters div{
+.filters-title {
+    background-image: url(img/title-container.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 40%;
+}
+
+.option-container {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+        /* background-color: blue; */
+}
+
+.option{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     cursor: pointer;
+    height: 20%;
+        /* background-color: blue; */
+}
+
+.filter-txt {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}
+
+.filter-img {
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.plant-filter {
+    background-image: url(img/elements/plant.png);
+}
+
+.ghost-filter {
+    background-image: url(img/elements/ghost.png);
+}
+
+.demon-filter {
+    background-image: url(img/elements/demon.png);
+}
+
+.dirt-filter {
+    background-image: url(img/elements/dirt.png);
 }
 
 .description{
@@ -40,19 +113,49 @@
     height: 100%;
     background-color: darkgrey;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.id-container {
+    background-color: red;
+    height: 35%;
+    width: 100%;
+    background-image: url(img/title-container.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+}
+
+.type-container {
+    height: 10%;
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3vw;
+}
+
+.data {
+    font-style: italic;
 }
 
 .element-container{
     background-image: url(img/elements/element-container.png);
-    background-position: center;
+    background-position: top;
     background-size: contain;
     background-repeat: no-repeat;
     height: 40%;
     width: 40%;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: start;
 }
 
 .element {
@@ -107,5 +210,5 @@ body{
 }
 
 .active {
-    background-color: yellow;
+    animation: spin 15s linear infinite;
 }

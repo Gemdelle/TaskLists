@@ -9,15 +9,20 @@
    <div class="instructions-container">
        <div class="title"></div>
        <div class="filters">
-           <div id="plant">P</div>
-           <div id="ghost">G</div>
-           <div id="demon">De</div>
-           <div id="dirt">D</div>
+           <span class="filters-title">Types</span>
+           <div class="option-container">
+            <div class="option"><div id="plant" class="filter-img plant-filter"></div><span class="filter-txt">Plant</span></div>
+            <div class="option"><div id="ghost" class="filter-img ghost-filter"></div><span class="filter-txt">Ghost</span></div>
+            <div class="option"><div id="demon" class="filter-img demon-filter"></div><span class="filter-txt">Demon</span></div>
+            <div class="option"><div id="dirt" class="filter-img dirt-filter"></div><span class="filter-txt">Dirt</span></div>
+           </div>
        </div>
    </div>
 
     <div class="pet-container pet-plant">
         <div class="description">
+            <div class="id-container"><span>ID  </span><span class="data data-plant">1</span></div>
+            <div class="type-container"><span>Type </span><span class="data data-plant">plant</span></div>
             <div class="element-container">
                 <div class="element"></div>
             </div>
@@ -62,7 +67,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const filters = document.querySelectorAll('.filters div');
+        const filters = document.querySelectorAll('.filters .filter-img');
         const petContainers = document.querySelectorAll('.pet-container');
         const activeFilters = new Set();
 
