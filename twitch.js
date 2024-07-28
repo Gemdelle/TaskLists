@@ -58,6 +58,17 @@ function initializeUserProgressIfNotPresent(username) {
     }
 }
 
+function incrementXP(usernameForIncrement) {
+    progress[usernameForIncrement].pet.actual_xp++;
+
+    const pet = progress[usernameForIncrement].pet;
+    if (pet.actual_xp >= pet.total_xp) {
+        pet.level++;
+        pet.total_xp = pet.level === 2 ? 3000 : pet.level === 3 ? 5000 : pet.total_xp;
+    }
+    return pet;
+}
+
 function executePossibleUserCommand(message, currentUsername, messageDispatcher) {
     const emojiCommandPattern = /^!emoji \p{Emoji}$/u;
     const progressCommandPattern = /^!progress (\w+)$/;
@@ -230,14 +241,19 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
                     const firstSublistItem = userList.sublist.find(item => item.current_tasks < item.total_tasks);
                     if (firstSublistItem) {
                         firstSublistItem.current_tasks++;
+                        const pet = incrementXP(usernameForIncrement);
+
                         if (firstSublistItem.current_tasks === firstSublistItem.total_tasks) {
                             userList.current_tasks = userList.sublist.filter(item => item.current_tasks === item.total_tasks).length;
                             userList.total_tasks = userList.sublist.length;
                         }
+
                         messageDispatcher(`🔄 **Updated sublist item:**\n` +
                             `  - **Name:** ${firstSublistItem.name}\n` +
                             `  - **Current Tasks:** ${firstSublistItem.current_tasks}\n` +
-                            `  - **Total Tasks:** ${firstSublistItem.total_tasks}`);
+                            `  - **Total Tasks:** ${firstSublistItem.total_tasks}\n` +
+                            `  - **Pet XP:** ${pet.actual_xp}/${pet.total_xp}\n` +
+                            `  - **Pet Level:** ${pet.level}`);
                     } else {
                         messageDispatcher(`⚠️ **No sublist item with current tasks < total tasks found. Incrementing list total tasks.**`);
                         userList.total_tasks++;
@@ -248,12 +264,13 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
                     }
                     if (userList.current_tasks < userList.total_tasks) {
                         userList.current_tasks++;
-                        if (userList.current_tasks === userList.total_tasks) {
-                            userList.total_tasks++;
-                        }
+                        const pet = incrementXP(usernameForIncrement);
+
                         messageDispatcher(`🔄 **Updated list current tasks:**\n` +
                             `  - **Current Tasks:** ${userList.current_tasks}\n` +
-                            `  - **Total Tasks:** ${userList.total_tasks}`);
+                            `  - **Total Tasks:** ${userList.total_tasks}\n` +
+                            `  - **Pet XP:** ${pet.actual_xp}/${pet.total_xp}\n` +
+                            `  - **Pet Level:** ${pet.level}`);
                     } else {
                         messageDispatcher(`⚠️ **List current tasks have reached the total tasks.**`);
                     }
@@ -346,11 +363,10 @@ function executePossibleAdminCommand(message, currentUsername, messageDispatcher
 }
 
 client.on('message', (channel, tags, message, self) => {
-    if (self || tags['display-name'] === "Nightbot") return;
+    if (self || tags['display-name'] === "Nightbot" || !message.startsWith('!')) return;
     let responseAlreadyGiven = false;
-    console.log(`${tags['display-name']}: ${message}`);
 
-    if (tags['display-name'] === 'Gemdelle') {
+    if (tags['display-name'] === 'Gemdelle' || tags['display-name'] === "gemy_bot") {
         executePossibleAdminCommand(message.toLowerCase(), tags['display-name'].toLowerCase(), (message) => {
             console.log(message);
             client.say(channel, `${message}`);

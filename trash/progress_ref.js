@@ -23,8 +23,8 @@
 //             "actual_xp": 0, //+1 por sublevel completado
 //             "total_xp": 1000
 //     },
-//     //user command -> !list <list_name>,<total_tasks>
-//     //user command -> !sublist <list_name>, <total_tasks>
+//     //user command -> !list <list_name> <total_tasks>
+//     //user command -> !sublist <total_tasks>
 //     //user command -> !++l
 //     //user command -> !list
 //     "list": {
