@@ -1,0 +1,100 @@
+.title{
+    background-color: blue;
+    width: 23vw;
+    height: 13vw;
+}
+
+.instructions-container{
+
+}
+
+.pet-container{
+    width: 100%;
+    height: 13vw;
+    background: grey;
+    margin-top: 2vw;
+}
+
+
+
+.filters{
+    width: 23vw;
+    height: 2vw;
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filters div{
+    cursor: pointer;
+}
+
+.pet-plant .description{
+    width: 25%;
+    height: 100%;
+    background-color: darkgrey;
+}
+
+.pet-plant .element{
+    background-color: green;
+    height: 4vw;
+    width: 4vw;
+}
+
+.pet-ghost .description{
+    width: 25%;
+    height: 100%;
+    background-color: darkgrey;
+}
+
+.pet-ghost .element{
+    background-color: white;
+    height: 4vw;
+    width: 4vw;
+}
+
+.pet-demon .description{
+    width: 25%;
+    height: 100%;
+    background-color: darkgrey;
+}
+
+.pet-demon .element{
+    background-color: darkred;
+    height: 4vw;
+    width: 4vw;
+}
+
+.pet-dirt .description{
+    width: 25%;
+    height: 100%;
+    background-color: darkgrey;
+}
+
+.pet-dirt .element{
+    background-color: orange;
+    height: 4vw;
+    width: 4vw;
+}
+
+.base{
+
+}
+
+.evolution{
+
+}
+
+body{
+    background-color: black;
+    padding: 3vw;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    background-color: yellow;
+}
