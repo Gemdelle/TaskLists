@@ -29,10 +29,13 @@ font-family: 'blackwood-castle', sans-serif;
 }
 
 .pet-container{
-    width: 100%;
+    width: 80%;
     height: 20vw;
     background: grey;
+    margin: 0 auto;
     margin-top: 2vw;
+    display: flex;
+    justify-content: space-between;
 }
 
 .filters{
@@ -109,7 +112,7 @@ font-family: 'blackwood-castle', sans-serif;
 }
 
 .description{
-    width: 25%;
+    width: 16%;
     height: 100%;
     background-color: darkgrey;
     display: flex;
@@ -192,12 +195,68 @@ font-family: 'blackwood-castle', sans-serif;
     background-image: url(img/elements/dirt.png);
 }
 
-.base{
-
+.frame {
+    background-color: pink;
+    width: 20%;
+    height: 100%;
+    border: 1px solid black;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.evolution{
+.pet-plant .base{
+    background-image: url(img/pet-frame/black-plant-1.png);
+}
 
+.pet-plant .evolution1{
+    background-image: url(img/pet-frame/white-plant-2.png);
+}
+
+.pet-plant .evolution2{
+    background-image: url(img/pet-frame/white-plant-3.png);
+}
+
+.pet-demon .base{
+    background-image: url(img/pet-frame/black-demon-1.png);
+}
+
+.pet-demon .evolution1{
+    background-image: url(img/pet-frame/white-demon-2.png);
+}
+
+.pet-demon .evolution2{
+    background-image: url(img/pet-frame/white-demon-3.png);
+}
+
+.pet-ghost .base{
+    background-image: url(img/pet-frame/black-ghost-1.png);
+}
+
+.pet-ghost .evolution1{
+    background-image: url(img/pet-frame/white-ghost-2.png);
+}
+
+.pet-ghost .evolution2{
+    background-image: url(img/pet-frame/white-ghost-3.png);
+}
+
+.pet-dirt .base{
+    background-image: url(img/pet-frame/black-dirt-1.png);
+}
+
+.pet-dirt .evolution1{
+    background-image: url(img/pet-frame/white-dirt-2.png);
+}
+
+.pet-dirt .evolution2{
+    background-image: url(img/pet-frame/white-dirt-3.png);
+}
+
+.adoption {
+    width: 20%;
+    height: 100%;
+    background-color: goldenrod;
 }
 
 body{
