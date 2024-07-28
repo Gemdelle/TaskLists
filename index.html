@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   <div class="instructions-container">
+       <div class="title"></div>
+       <div class="filters">
+           <div id="plant">P</div>
+           <div id="ghost">G</div>
+           <div id="demon">De</div>
+           <div id="dirt">D</div>
+       </div>
+   </div>
+
+    <div class="pet-container pet-plant">
+        <div class="description">
+            <div class="element"></div>
+        </div>
+        <div class="base"></div>
+        <div class="evolution"></div>
+        <div class="evolution"></div>
+    </div>
+
+   <div class="pet-container pet-ghost">
+       <div class="description">
+           <div class="element"></div>
+       </div>
+       <div class="base"></div>
+       <div class="evolution"></div>
+       <div class="evolution"></div>
+   </div>
+
+   <div class="pet-container pet-dirt">
+       <div class="description">
+           <div class="element"></div>
+       </div>
+       <div class="base"></div>
+       <div class="evolution"></div>
+       <div class="evolution"></div>
+   </div>
+
+   <div class="pet-container pet-demon">
+       <div class="description">
+           <div class="element"></div>
+       </div>
+       <div class="base"></div>
+       <div class="evolution"></div>
+       <div class="evolution"></div>
+   </div>
+
+   <div class="pet-container pet-plant">
+       <div class="description">
+           <div class="element"></div>
+       </div>
+       <div class="base"></div>
+       <div class="evolution"></div>
+       <div class="evolution"></div>
+   </div>
+
+   <div class="pet-container pet-dirt">
+       <div class="description">
+           <div class="element"></div>
+       </div>
+       <div class="base"></div>
+       <div class="evolution"></div>
+       <div class="evolution"></div>
+   </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filters = document.querySelectorAll('.filters div');
+        const petContainers = document.querySelectorAll('.pet-container');
+        const activeFilters = new Set();
+
+        filters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                const filterId = filter.id;
+                if (activeFilters.has(filterId)) {
+                    activeFilters.delete(filterId);
+                    filter.classList.remove('active');
+                } else {
+                    activeFilters.add(filterId);
+                    filter.classList.add('active');
+                }
+                updateVisibility();
+            });
+        });
+
+        function updateVisibility() {
+            if (activeFilters.size === 0) {
+                petContainers.forEach(container => container.classList.remove('hidden'));
+            } else {
+                petContainers.forEach(container => {
+                    let isVisible = false;
+                    activeFilters.forEach(filter => {
+                        if (container.classList.contains('pet-' + filter)) {
+                            isVisible = true;
+                        }
+                    });
+                    if (isVisible) {
+                        container.classList.remove('hidden');
+                    } else {
+                        container.classList.add('hidden');
+                    }
+                });
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
