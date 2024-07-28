@@ -1,21 +1,26 @@
 .title{
-    background-color: blue;
+    background-image: url(img/title.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 23vw;
-    height: 13vw;
+    height: 20vw;
 }
 
 .instructions-container{
-
+    background-color: blue;
+    background-image: url(img/instructions.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .pet-container{
     width: 100%;
-    height: 13vw;
+    height: 20vw;
     background: grey;
     margin-top: 2vw;
 }
-
-
 
 .filters{
     width: 23vw;
@@ -30,52 +35,58 @@
     cursor: pointer;
 }
 
-.pet-plant .description{
+.description{
     width: 25%;
     height: 100%;
     background-color: darkgrey;
+    display: flex;
+    justify-content: center;
 }
 
-.pet-plant .element{
-    background-color: green;
-    height: 4vw;
-    width: 4vw;
+.element-container{
+    background-image: url(img/elements/element-container.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
 
-.pet-ghost .description{
-    width: 25%;
-    height: 100%;
-    background-color: darkgrey;
+.element {
+    height: 80%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    animation: spin 15s linear infinite;
 }
 
-.pet-ghost .element{
-    background-color: white;
-    height: 4vw;
-    width: 4vw;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.pet-demon .description{
-    width: 25%;
-    height: 100%;
-    background-color: darkgrey;
+.pet-plant .element {
+    background-image: url(img/elements/plant.png);
 }
 
-.pet-demon .element{
-    background-color: darkred;
-    height: 4vw;
-    width: 4vw;
+.pet-ghost .element {
+    background-image: url(img/elements/ghost.png);
 }
 
-.pet-dirt .description{
-    width: 25%;
-    height: 100%;
-    background-color: darkgrey;
+.pet-demon .element {
+    background-image: url(img/elements/demon.png);
 }
 
-.pet-dirt .element{
-    background-color: orange;
-    height: 4vw;
-    width: 4vw;
+.pet-dirt .element {
+    background-image: url(img/elements/dirt.png);
 }
 
 .base{
