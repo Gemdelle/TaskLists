@@ -11,7 +11,7 @@ twitchClient.on('message', (channel, tags, message, self) => {
 });
 
 
-app.get('/chat', (req, res) => {
+app.get('/api/chat', (req, res) => {
     res.json(chatMessages);
 });
 

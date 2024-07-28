@@ -2,11 +2,11 @@
     font-family: 'blackwood-castle';
     src: url('blackwood-castle.TTF') format('truetype');
 }
-  
+
 body {
 font-family: 'blackwood-castle', sans-serif;
 }
-  
+
 
 .instructions-container{
     height: 37vw;
@@ -20,7 +20,7 @@ font-family: 'blackwood-castle', sans-serif;
 }
 
 .title{
-    background-image: url(img/title.png);
+    background-image: url(title.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -180,19 +180,19 @@ font-family: 'blackwood-castle', sans-serif;
 }
 
 .pet-plant .element {
-    background-image: url(img/elements/plant.png);
+    background-image: url(plant.png);
 }
 
 .pet-ghost .element {
-    background-image: url(img/elements/ghost.png);
+    background-image: url(ghost.png);
 }
 
 .pet-demon .element {
-    background-image: url(img/elements/demon.png);
+    background-image: url(demon.png);
 }
 
 .pet-dirt .element {
-    background-image: url(img/elements/dirt.png);
+    background-image: url(dirt.png);
 }
 
 .frame {

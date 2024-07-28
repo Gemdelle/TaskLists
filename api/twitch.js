@@ -1,7 +1,7 @@
 require('dotenv').config();
 const tmi = require('tmi.js');
 const fs = require('fs');
-const pets = require('./pets.json');
+const pets = require('../pets.json');
 let progress = {};
 const progressFilePath = './progress.json';
 
