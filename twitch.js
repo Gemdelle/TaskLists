@@ -326,7 +326,8 @@ client.on('message', (channel, tags, message, self) => {
     }
 
     executePossibleAdminCommand(message.toLowerCase(), tags['display-name'].toLowerCase(), (message)=>{
-        client.say(channel, `${message}`)
+        //client.say(channel, `${message}`)
+        console.log(message);
     })
 
     // if (message.toLowerCase() === '!hi') {
