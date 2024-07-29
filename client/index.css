@@ -414,3 +414,15 @@ body{
 .active {
     animation: spin 15s linear infinite;
 }
+
+.question-mark{
+    font-size: 5vw;
+}
+
+.frame-inner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
