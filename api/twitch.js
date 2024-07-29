@@ -390,4 +390,8 @@ client.on('reconnect', () => {
     console.log('Reconnecting...');
 });
 
-module.exports = client;
+module.exports = {
+    client,
+    executePossibleAdminCommand,
+    // other exports
+};

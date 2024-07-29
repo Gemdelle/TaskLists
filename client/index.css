@@ -238,7 +238,49 @@ overflow-x: hidden;
     transform-origin: bottom center; /* Set pivot point to the bottom center */
 }
 
-.pet-plant .pet-img:hover {
+.pet-ghost .pet-img {
+    background-image: url(img/pets/pet-2.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-dirt .pet-img {
+    background-image: url(img/pets/pet-3.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-demon .pet-img {
+    background-image: url(img/pets/pet-4.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-plant .pet-img:hover,
+.pet-ghost .pet-img:hover,
+.pet-dirt .pet-img:hover,
+.pet-demon .pet-img:hover {
     animation: scale-vertically 1s infinite; /* Adjust the duration as needed */
 }
 
@@ -256,10 +298,13 @@ overflow-x: hidden;
 
 /* END PET IDS */
 
-.pet-plant .base{
+.base {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.pet-plant .base{
     background-image: url(img/pet-frame/black-plant-1.png);
 }
 
@@ -287,10 +332,20 @@ overflow-x: hidden;
 
 .pet-demon .evolution1{
     background-image: url(img/pet-frame/white-demon-2.png);
+    transition: all 1s ease-in-out;
+}
+
+.pet-demon .evolution1:hover {
+    background-image: url(img/pet-frame/black-demon-2.png);
 }
 
 .pet-demon .evolution2{
     background-image: url(img/pet-frame/white-demon-3.png);
+    transition: all 1s ease-in-out;
+}
+
+.pet-demon .evolution2:hover{
+    background-image: url(img/pet-frame/black-demon-3.png);
 }
 
 .pet-ghost .base{
@@ -299,10 +354,20 @@ overflow-x: hidden;
 
 .pet-ghost .evolution1{
     background-image: url(img/pet-frame/white-ghost-2.png);
+    transition: all 1s ease-in-out;
+}
+
+.pet-ghost .evolution1:hover {
+    background-image: url(img/pet-frame/black-ghost-2.png);
 }
 
 .pet-ghost .evolution2{
     background-image: url(img/pet-frame/white-ghost-3.png);
+    transition: all 1s ease-in-out;
+}
+
+.pet-ghost .evolution2:hover{
+    background-image: url(img/pet-frame/black-ghost-3.png);
 }
 
 .pet-dirt .base{
@@ -311,16 +376,30 @@ overflow-x: hidden;
 
 .pet-dirt .evolution1{
     background-image: url(img/pet-frame/white-dirt-2.png);
+    transition: all 1s ease-in-out;
+}
+
+.pet-dirt .evolution1:hover {
+    background-image: url(img/pet-frame/black-dirt-2.png);
 }
 
 .pet-dirt .evolution2{
     background-image: url(img/pet-frame/white-dirt-3.png);
+    transition: all 1s ease-in-out;
+}
+
+.pet-dirt .evolution2:hover{
+    background-image: url(img/pet-frame/black-dirt-3.png);
 }
 
 .adoption {
     width: 12.5%;
     height: 100%;
     background-color: goldenrod;
+}
+.adoption input, .adoption button {
+    display: block;
+    margin-bottom: 10px;
 }
 
 body{
