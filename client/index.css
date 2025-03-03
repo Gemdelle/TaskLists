@@ -4,12 +4,41 @@
 }
 
 body {
-font-family: 'blackwood-castle', sans-serif;
-background-image: url(img/background.png);
-background-size: contain;
-overflow-x: hidden;
+    font-family: 'blackwood-castle', sans-serif;
+    background-image: url(img/background.png);
+    background-size: contain;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
+nav {
+    top: 1vw;
+    right: 1vw;
+    position: fixed;
+    width: 38%;
+    height: 10%;
+    background-color: rebeccapurple;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+}
+
+nav span {
+    margin: 0 1vw;
+    font-size: 2vw;
+}
+
+.profile-container {
+    position: absolute;
+    width: 10vw;
+    height: 25vh;
+    background-color: red;
+    right: 0;
+    top: 0;
+}
 
 .instructions-container{
     height: 37vw;
@@ -46,31 +75,31 @@ overflow-x: hidden;
 
 .filters{
     width: 13vw;
-    height: 10vw;
+    height: 15vw;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     color: blanchedalmond;
     margin-left: 5vw;
-    margin-bottom: 2vw;
-    /* background-color: blue; */
+    margin-top: 4vw;
+    /* background-color: pink; */
 }
 
 .filters-title {
-    background-image: url(img/title-container.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 40%;
+    align-items: flex-start;
+    width: 100%;
+    height: 25%;
+    font-size: 2.5vw;
+    letter-spacing: 0.2vw;
+    /* background-color: red; */
 }
 
 .option-container {
-    width: 40%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -79,11 +108,10 @@ overflow-x: hidden;
 
 .option{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     cursor: pointer;
-    height: 20%;
-        /* background-color: blue; */
+    height: 18%;
 }
 
 .filter-txt {
@@ -91,15 +119,17 @@ overflow-x: hidden;
     height: 100%;
     display: flex;
     align-items: center;
-    margin-left: 1vw;
+    font-size: 1.8vw;
+    letter-spacing: 0.2vw;
 }
 
 .filter-img {
-    width: 50%;
+    width: 30%;
     height: 100%;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    /* background-color: violet; */
 }
 
 .plant-filter {
@@ -121,7 +151,7 @@ overflow-x: hidden;
 .description{
     width: 12.5%;
     height: 100%;
-    background-color: darkgrey;
+    /* background-color: darkgrey; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,7 +159,7 @@ overflow-x: hidden;
 }
 
 .id-container {
-    background-color: red;
+    /* background-color: red; */
     height: 35%;
     width: 100%;
     background-image: url(img/title-container.png);
@@ -140,16 +170,19 @@ overflow-x: hidden;
     justify-content: center;
     align-items: center;
     font-size: 1.5vw;
+    color: blanchedalmond;
 }
 
 .type-container {
     height: 10%;
     width: 100%;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.3vw;
+    font-size: 2vw;
+    color: blanchedalmond;
+    letter-spacing: 0.2vw;
 }
 
 .data {
@@ -166,7 +199,7 @@ overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: start;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .element {
@@ -395,16 +428,54 @@ overflow-x: hidden;
 .adoption {
     width: 12.5%;
     height: 100%;
-    background-color: goldenrod;
-}
-.adoption input, .adoption button {
-    display: block;
-    margin-bottom: 10px;
+    /* background-color: goldenrod; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-body{
-    background-color: black;
-    padding: 3vw;
+.adoption span {
+    display: flex;
+    justify-content: center;
+    height: 15%;
+    font-size: 2vw;
+    color: antiquewhite;
+}
+
+.adoption input, .adoption button {
+    font-family: 'blackwood-castle', sans-serif;
+    width: 100%;
+    display: block;
+    margin-bottom: 1.1vw;
+    font-size: 1.2vw;
+    letter-spacing: 0.2vw;
+    font-style: italic;
+    border: solid 2px rgb(46, 49, 2);
+    border-radius: 5px;
+}
+
+.adopt-btn {
+    filter: brightness(50%);
+    margin-top: 0.8vw;
+    color:antiquewhite;
+    height: 25%;
+    width: 60%;
+    background-color: transparent !important;
+    border: none !important;
+    background-image: url(/TaskLists/client/img/title-container.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 1.5vw !important;
+    letter-spacing: 0.1vw;
+    font-style:normal !important;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.adopt-btn:hover {
+    transform: scale(103%);
+    filter: brightness(100%);
 }
 
 .hidden {
