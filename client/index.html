@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="pet-container pet-plant">
+<div class="pet-container pet-plant" data-id="1">
     <div class="description">
         <div class="id-container"><span>ID  </span><span class="data data-plant">1</span></div>
         <div class="type-container"><span>Type </span><span class="data data-plant">plant</span></div>
@@ -69,7 +69,7 @@
     </div>
 </div>
 
-<div class="pet-container pet-ghost">
+<div class="pet-container pet-ghost" data-id="2">
     <div class="description">
         <div class="id-container"><span>ID  </span><span class="data data-ghost">2</span></div>
         <div class="type-container"><span>Type </span><span class="data data-ghost">ghost</span></div>
@@ -109,7 +109,7 @@
     </div>
 </div>
 
-<div class="pet-container pet-dirt">
+<div class="pet-container pet-dirt" data-id="3">
     <div class="description">
         <div class="id-container"><span>ID  </span><span class="data data-dirt">3</span></div>
         <div class="type-container"><span>Type </span><span class="data data-dirt">dirt</span></div>
@@ -149,7 +149,7 @@
     </div>
 </div>
 
-<div class="pet-container pet-demon">
+<div class="pet-container pet-demon" data-id="4">
     <div class="description">
         <div class="id-container"><span>ID  </span><span class="data data-demon">4</span></div>
         <div class="type-container"><span>Type </span><span class="data data-demon">demon</span></div>
@@ -234,7 +234,7 @@
         adoptButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const petContainer = button.closest('.pet-container');
-                const id = petContainer.querySelector('.id-container .data').textContent;
+                const id = petContainer.getAttribute('data-id');
                 const username = petContainer.querySelector('.username').value;
                 const petName = petContainer.querySelector('.pet-name').value;
                 const code = petContainer.querySelector('.code').value;

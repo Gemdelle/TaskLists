@@ -2,8 +2,21 @@ require('dotenv').config();
 const tmi = require('tmi.js');
 const fs = require('fs');
 const pets = require('../pets.json');
+const fetch = require('node-fetch');
 let progress = {};
 const progressFilePath = './progress.json';
+
+const STREAMELEMENTS_API_KEY = process.env.STREAMELEMENTS_API_KEY;
+const STREAMER_ID = process.env.STREAMELEMENTS_CHANNEL_ID;
+
+const storeItems = {
+    rice: 15,
+    tea: 35,
+    coffee: 45,
+    bug: 50,
+    biscuit: 75,
+    chicken_wing: 300
+};
 
 if (fs.existsSync(progressFilePath)) {
     progress = JSON.parse(fs.readFileSync(progressFilePath, 'utf8'));
@@ -28,14 +41,50 @@ client.on('connected', (address, port) => {
     console.log(`Connected to ${address}:${port}`);
 });
 
+async function getLoyaltyPoints(username) {
+    const url = `https://api.streamelements.com/kappa/v2/points/${STREAMER_ID}/${username}`;
+
+    try {
+        const response = await fetch(url, {
+            headers: { 'Authorization': `Bearer ${STREAMELEMENTS_API_KEY}` }
+        });
+        const data = await response.json();
+        return {
+            points: data.points || 0,
+            rank: data.rank || 0
+        }; // Si no tiene puntos, retorna 0
+    } catch (error) {
+        console.error('Error al obtener puntos:', error);
+        return null;
+    }
+}
+
+async function updateLoyaltyPoints(username, amount) {
+    const url = `https://api.streamelements.com/kappa/v2/points/${STREAMER_ID}/${username}/${amount}`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${STREAMELEMENTS_API_KEY}` }
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Error al actualizar puntos:', error);
+        return false;
+    }
+}
+
 function initializeUserProgressIfNotPresent(username) {
     if (!progress[username]) {
         progress[username] = {
             emoji: "",
             inventory: {
-                froot_loops: 0,
-                bubbaloo: 0,
-                ferrero_rocher: 0
+                rice: 0,
+                tea: 0,
+                coffee: 0,
+                bug: 0,
+                biscuit: 0,
+                chicken_wing: 0
             },
             pet: {
                 id: null,
@@ -73,13 +122,15 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
     const emojiCommandPattern = /^!emoji \p{Emoji}$/u;
     const progressCommandPattern = /^!progress (\w+)$/;
     const inventoryCommandPattern = /^!inventory$/;
-    const petnameCommandPattern = /^!petname (\w+)$/;
-    const petCommandPattern = /^!pet$/;
+    const petnameCommandPattern = /^!eskel_name (\w+)$/;
+    const petCommandPattern = /^!my_eskel$/;
     const feedCommandPattern = /^!feed (\w+)$/;
     const listCommandPattern = /^!list "([^"]+)" (\d+)$/;
     const sublistCommandPattern = /^!sublist "([^"]+)" (\d+)$/;
     const incrementListCommandPattern = /^!l\+\+$/;
     const listViewCommandPattern = /^!list$/;
+    const storeCommandPattern = /^!store$/;
+    const buyRiceCommandPattern = /^!buy_rice$/;
 
     const command = message.split(' ')[0];
 
@@ -142,14 +193,12 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
             const usernameForPet = currentUsername;
             if (progress[usernameForPet] && progress[usernameForPet].pet) {
                 const pet = progress[usernameForPet].pet;
-                let petStr = `🐾 **Pet details for ${usernameForPet}:**\n`;
+                let petStr = `🐾 **Eskel details of ${pet.name}:**\n`;
                 for (const [key, value] of Object.entries(pet)) {
                     petStr += `  - **${key}:** ${value}\n`;
                 }
+                petStr += pets[pet.id][pet.level];
                 messageDispatcher(petStr.trim());
-                let currentUserPetId = pet.id;
-                let currentUserPetLevel = pet.level;
-                messageDispatcher(pets[currentUserPetId][currentUserPetLevel])
             } else {
                 messageDispatcher(`❌ **No pet found for username: ${usernameForPet}**`);
             }
@@ -305,6 +354,18 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
             }
             break;
 
+        case storeCommandPattern.test(message):
+            let storeMessage = '**Store Items:**\n';
+            for (const [item, price] of Object.entries(storeItems)) {
+                storeMessage += `${item}: ${price} derlets\n`;
+            }
+            messageDispatcher(storeMessage);
+            break;
+
+        case buyRiceCommandPattern.test(message):
+            buyRice(currentUsername, messageDispatcher);
+            break;
+
         default:
             messageDispatcher(`⚠️ **Unknown command: ${message}**`);
             break;
@@ -313,7 +374,10 @@ function executePossibleUserCommand(message, currentUsername, messageDispatcher)
 
 function executePossibleAdminCommand(message, currentUsername, messageDispatcher) {
     const foodCommandPattern = /^!(froot_loops|bubbaloo|ferrero_rocher) (\w+)$/;
-    const adoptCommandPattern = /^!adopt (\d+) (\w+) (\d{4}-\d{2}-\d{2})$/;
+    const adoptCommandPattern = /^!adopt (\d+) (\w+) (\w+) (\d{4}-\d{2}-\d{2})$/;
+    const pointsCommandPattern = /^!points (\w+)$/;
+    const addPointsCommandPattern = /^!add_points (\w+) (\d+)$/;
+    const removePointsCommandPattern = /^!remove_points (\w+) (\d+)$/;
 
     switch (true) {
         case foodCommandPattern.test(message):
@@ -333,16 +397,17 @@ function executePossibleAdminCommand(message, currentUsername, messageDispatcher
             break;
 
         case adoptCommandPattern.test(message):
-            const [, id, usernameForAdopt, birthday] = message.match(adoptCommandPattern);
+            const [, id, usernameForAdopt, petName, birthday] = message.match(adoptCommandPattern);
             initializeUserProgressIfNotPresent(usernameForAdopt);
             if (progress[usernameForAdopt] && pets[id]) {
                 progress[usernameForAdopt].pet = {
                     id: parseInt(id),
-                    name: "",
+                    name: petName,
                     birthday: birthday,
                     level: 1,
                     type: pets[id].type,
                     hunger: 100,
+                    happiness: 100,
                     actual_xp: 0,
                     total_xp: 1000
                 };
@@ -356,9 +421,73 @@ function executePossibleAdminCommand(message, currentUsername, messageDispatcher
             }
             break;
 
+        case pointsCommandPattern.test(message):
+            const [, usernamePuntos] = message.match(pointsCommandPattern);
+            getLoyaltyPoints(usernamePuntos).then(userData => {
+                if (userData !== null) {
+                    messageDispatcher(`🌟[Rank ${userData.rank}] **${usernamePuntos} has ${userData.points} derlets!**`);
+                } else {
+                    messageDispatcher(`❌ **Error al obtener los puntos de ${usernamePuntos}.**`);
+                }
+            });
+            break;
+
+        case addPointsCommandPattern.test(message):
+            const [, targetUser, amount] = message.match(addPointsCommandPattern);
+            updateLoyaltyPoints(targetUser, parseInt(amount)).then(success => {
+                if (success) {
+                    messageDispatcher(`🎁 **${currentUsername} has given ${amount} derlets to ${targetUser}!**`);
+                } else {
+                    messageDispatcher(`❌ **Error al transferir puntos a ${targetUser}.**`);
+                }
+            });
+            break;
+
+        case removePointsCommandPattern.test(message):
+            const [, targetUserRemove, amountRemove] = message.match(removePointsCommandPattern);
+            updateLoyaltyPoints(targetUserRemove, -parseInt(amountRemove)).then(success => {
+                if (success) {
+                    messageDispatcher(`❌ **${currentUsername} has removed ${amountRemove} derlets from ${targetUserRemove}!**`);
+                } else {
+                    messageDispatcher(`⚠️ **Error al eliminar puntos de ${targetUserRemove}.**`);
+                }
+            });
+            break;
+
         default:
             executePossibleUserCommand(message, currentUsername, messageDispatcher);
             break;
+    }
+}
+
+async function buyRice(username, messageDispatcher) {
+    initializeUserProgressIfNotPresent(username);
+    const ricePrice = storeItems.rice;
+    const {points} = await getLoyaltyPoints(username);
+
+    if (points < ricePrice) {
+        messageDispatcher(`❌ **${username}, you don't have enough derlets to buy rice!**`);
+        return;
+    }
+
+    const success = await updateLoyaltyPoints(username, -ricePrice);
+    if (!success) {
+        messageDispatcher(`❌ **Failed to deduct derlets for ${username}.**`);
+        return;
+    }
+
+    if (progress[username]) {
+        if (progress[username].inventory.hasOwnProperty('rice')) {
+            progress[username].inventory['rice']++;
+            fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
+            messageDispatcher(`✅ **${username} bought 1 rice for ${ricePrice} derlets!**`);
+        } else {
+            messageDispatcher(`❌ **Failed to add rice to ${username}'s inventory.**`);
+            await updateLoyaltyPoints(username, ricePrice);
+        }
+    } else {
+        messageDispatcher(`❌ **No progress found for username: ${username}**`);
+        await updateLoyaltyPoints(username, ricePrice);
     }
 }
 
@@ -366,8 +495,8 @@ client.on('message', (channel, tags, message, self) => {
     if (self || tags['display-name'] === "Nightbot" || !message.startsWith('!')) return;
     let responseAlreadyGiven = false;
 
-    if (tags['display-name'] === 'Gemdelle' || tags['display-name'] === "gemy_bot") {
-        executePossibleAdminCommand(message.toLowerCase(), tags['display-name'].toLowerCase(), (message) => {
+    if (tags['display-name'] === 'Gemdelle' || tags['display-name'] === "gemy_bot" || tags['display-name'] === "Se0hyunLoL") {
+        executePossibleAdminCommand(message.toLowerCase(), tags['display-name'], (message) => {
             console.log(message);
             client.say(channel, `${message}`);
             responseAlreadyGiven = true;
@@ -375,7 +504,7 @@ client.on('message', (channel, tags, message, self) => {
         return;
     }
 
-    executePossibleUserCommand(message.toLowerCase(), tags['display-name'].toLowerCase(), (message) => {
+    executePossibleUserCommand(message.toLowerCase(), tags['display-name'], (message) => {
         if (responseAlreadyGiven) return;
         console.log(message);
         client.say(channel, `${message}`);
