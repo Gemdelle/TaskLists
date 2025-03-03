@@ -42,13 +42,23 @@
     <div class="frame evolution1">
         <div class="frame-inner">
             <div class="frame-front">
+                <span class="question-mark">?</span>
             </div>
             <div class="frame-back">
                 <!-- Back Image -->
             </div>
         </div>
     </div>
-    <div class="frame evolution2"></div>
+    <div class="frame evolution2">
+        <div class="frame-inner">
+            <div class="frame-front">
+                <span class="question-mark">?</span>
+            </div>
+            <div class="frame-back">
+                <span>Adopt this pet to evolve</span>
+            </div>
+        </div>
+    </div>
     <div class="adoption">
         <span>ADOPTION</span>
         <input type="text" placeholder="Username" class="username">
@@ -73,13 +83,23 @@
     <div class="frame evolution1">
         <div class="frame-inner">
             <div class="frame-front">
+                <span class="question-mark">?</span>
             </div>
             <div class="frame-back">
                 <!-- Back Image -->
             </div>
         </div>
     </div>
-    <div class="frame evolution2"></div>
+    <div class="frame evolution2">
+        <div class="frame-inner">
+            <div class="frame-front">
+                <span class="question-mark">?</span>
+            </div>
+            <div class="frame-back">
+                <!-- Back Image -->
+            </div>
+        </div>
+    </div>
     <div class="adoption">
         <input type="text" placeholder="Username" class="username">
         <input type="text" placeholder="Pet's Name" class="pet-name">
@@ -103,13 +123,23 @@
     <div class="frame evolution1">
         <div class="frame-inner">
             <div class="frame-front">
+                <span class="question-mark">?</span>
             </div>
             <div class="frame-back">
                 <!-- Back Image -->
             </div>
         </div>
     </div>
-    <div class="frame evolution2"></div>
+    <div class="frame evolution2">
+        <div class="frame-inner">
+            <div class="frame-front">
+                <span class="question-mark">?</span>
+            </div>
+            <div class="frame-back">
+                <!-- Back Image -->
+            </div>
+        </div>
+    </div>
     <div class="adoption">
         <input type="text" placeholder="Username" class="username">
         <input type="text" placeholder="Pet's Name" class="pet-name">
@@ -133,13 +163,23 @@
     <div class="frame evolution1">
         <div class="frame-inner">
             <div class="frame-front">
+                <span class="question-mark">?</span>
             </div>
             <div class="frame-back">
                 <!-- Back Image -->
             </div>
         </div>
     </div>
-    <div class="frame evolution2"></div>
+    <div class="frame evolution2">
+        <div class="frame-inner">
+            <div class="frame-front">
+                <span class="question-mark">?</span>
+            </div>
+            <div class="frame-back">
+                <!-- Back Image -->
+            </div>
+        </div>
+    </div>
     <div class="adoption">
         <input type="text" placeholder="Username" class="username">
         <input type="text" placeholder="Pet's Name" class="pet-name">
@@ -154,7 +194,6 @@
         const filters = document.querySelectorAll('.filters .filter-img');
         const petContainers = document.querySelectorAll('.pet-container');
         const activeFilters = new Set();
-        let visibleAdoptionContainer = null;
 
         filters.forEach(filter => {
             filter.addEventListener('click', function() {

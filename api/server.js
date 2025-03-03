@@ -16,7 +16,7 @@ app.get('/api/chat', (req, res) => {
 });
 
 app.post('/api/adopt', (req, res) => {
-    const { id, username, pet_name, birthday } = req.body;
+    const { id, username, pet_name, birthday, code } = req.body;
 
     if (!id || !username || !pet_name || !birthday) {
         return res.status(400).json({ error: 'Missing required fields' });
