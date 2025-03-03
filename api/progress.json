@@ -1,1 +1,58 @@
-{}
+{
+  "Gemdelle": {
+    "emoji": "",
+    "inventory": {
+      "rice": 0,
+      "tea": 0,
+      "coffee": 0,
+      "bug": 0,
+      "biscuit": 0,
+      "chicken_wing": 0
+    },
+    "pet": {
+      "id": 4,
+      "name": "",
+      "birthday": "2025-03-13",
+      "level": 1,
+      "type": "Demon",
+      "hunger": 100,
+      "happiness": 100,
+      "actual_xp": 0,
+      "total_xp": 1000
+    },
+    "list": {
+      "name": "",
+      "current_tasks": 0,
+      "total_tasks": 0,
+      "sublist": []
+    }
+  },
+  "Se0hyunLoL": {
+    "emoji": "",
+    "inventory": {
+      "rice": 0,
+      "tea": 0,
+      "coffee": 0,
+      "bug": 0,
+      "biscuit": 0,
+      "chicken_wing": 0
+    },
+    "pet": {
+      "id": 2,
+      "name": "Ghosty",
+      "birthday": "2025-03-04",
+      "level": 1,
+      "type": "Ghost",
+      "hunger": 100,
+      "happiness": 100,
+      "actual_xp": 0,
+      "total_xp": 1000
+    },
+    "list": {
+      "name": "",
+      "current_tasks": 0,
+      "total_tasks": 0,
+      "sublist": []
+    }
+  }
+}
