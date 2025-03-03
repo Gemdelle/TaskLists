@@ -61,14 +61,13 @@ nav span {
 }
 
 .pet-container{
-    width: 90%;
+    width: 85%;
     height: 25vw;
     background-image: url(img/pet-frame/evolution-txt.png);
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 61%;
-    margin: 0 auto;
-    margin-top: 2vw;
+    margin: 6vw auto;
     display: flex;
     justify-content: space-between;
 }
