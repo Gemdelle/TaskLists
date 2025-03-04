@@ -1,7 +1,7 @@
 require('dotenv').config();
 const tmi = require('tmi.js');
 const fs = require('fs');
-const pets = require('./data/pets.json');
+const pets = require('../public/data/pets.json');
 const fetch = require('node-fetch');
 const {setDoc, getDoc, doc} = require("firebase/firestore");
 const {db} = require("./firebase");

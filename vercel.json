@@ -4,12 +4,36 @@
     {
       "src": "api/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "client/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/api/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/$1"
     }
-  ]
+  ],
+  "env": {
+    "TWITCH_CLIENT_ID":"7o7dkmp0qyr7ckp5nh8ho4elif0gxk",
+    "TWITCH_CLIENT_SECRET":"nrfr7wqjquht20q1pc29kol3faomx5",
+    "TWITCH_BOT_USERNAME":"Se0hyunLoL",
+    "TWITCH_BOT_TOKEN":"oauth:g3eoop73eb9n79kx8eql71etu38u77",
+    "TWITCH_CHANNEL":"Gemdelle",
+    "STREAMELEMENTS_API_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjaXRhZGVsIiwiZXhwIjoxNzU1MzExODI0LCJqdGkiOiI5ZWM3MWJlMS0yOTMyLTQ5OTMtYTQyNi0zNDBmOTJhMTY2NzciLCJjaGFubmVsIjoiNWM3MDk1ZTAwZWJhNTMwMzkyNDllMjgxIiwicm9sZSI6Im93bmVyIiwiYXV0aFRva2VuIjoiVGdPUnBmZnFiWExYSWJnLTZaZTB1dk9pV2dCVlp2YlZDbWhhZUo4Y1h1bjBSVXU1IiwidXNlciI6IjVjNzA5NWUwMGViYTUzN2NjODQ5ZTI4MCIsInVzZXJfaWQiOiIwNGQ3OTNiOS1mNzQzLTRmN2ItYTYyNy1jNzZmNjM3MzM3ZjIiLCJ1c2VyX3JvbGUiOiJjcmVhdG9yIiwicHJvdmlkZXIiOiJ0d2l0Y2giLCJwcm92aWRlcl9pZCI6IjQwNTAzMDIzOSIsImNoYW5uZWxfaWQiOiIwNTEzYTJkMS0xMWY1LTQ5NWYtYTYwOS1jZWIxNzAyYjI2MTIiLCJjcmVhdG9yX2lkIjoiYTE3ZmU0MWMtMTJkMy00NWQ5LWIxZDMtZDA4YjFjYWU3NGNkIn0.k8ixSGXSplWvFauDsCEx7iHZbrthSZq2RApXrAKnxJE",
+    "STREAMELEMENTS_CHANNEL_ID":"5c7095e00eba53039249e281",
+    "FIREBASE_API_KEY":"AIzaSyB4z5tUag-sJobgFsi1YzrebLkjNcSfpjQ",
+    "FIREBASE_AUTH_DOMAIN":"twitch-chat-game.firebaseapp.com",
+    "FIREBASE_PROYECT_ID":"twitch-chat-game",
+    "FIREBASE_STORAGE_BUCKET":"twitch-chat-game.firebasestorage.app",
+    "FIREBASE_MESSAGING_SENDER_ID":"976887622027",
+    "FIREBASE_APP_ID":"1:976887622027:web:df821261ed89702dc3678e",
+    "FIREBASE_MEASUREMENT_ID":"G-95LDNHV163"
+  }
 }
