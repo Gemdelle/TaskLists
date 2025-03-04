@@ -33,55 +33,100 @@ nav span {
 
 .profile-container {
     position: absolute;
-    width: 10vw;
-    height: 25vh;
-    background-color: red;
+    width: 12vw;
+    height: 30vh;
     right: 0;
     top: 0;
+    background-image: url(img/profile-picture/profile-frame.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    /* background-color: blue; */
+}
+
+.profile-picture {
+    width: 50%;
+    height: 50%;
+    background-image: url(img/pets/pet-5.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+    margin-top: 20%;
+    filter:brightness(100);
+    animation: scale-vertically 1s infinite;
+}
+
+@keyframes moveArrow {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+
+.arrow {
+    background-image: url(img/instructions/arrow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    /* background-color: blue; */
+    height: 17%;
+    width: 8%;
+    right: 3vw;
+    bottom: 40%;
+    transition: all 300ms ease-in-out;
+    animation: moveArrow 2s ease-in-out infinite;
+}
+
+.arrow:hover {
+    transform: scale(103%);
+}
+
+.arrow-back {
+    transform: rotate(180deg);
 }
 
 .instructions-container{
-    height: 37vw;
-    background-image: url(img/instructions.png);
+    height: 90vh;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5vh;
+    background-image: url(img/instructions/instructions-1.png);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: right;
+    background-position: center bottom;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
+    /* background-color: violet; */
 }
 
 .title{
+    position: absolute;
+    /* background-color: red; */
     background-image: url(img/title.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 23vw;
-    height: 20vw;
-}
-
-.pet-container{
-    width: 85%;
-    height: 25vw;
-    background-image: url(img/pet-frame/evolution-txt.png);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 61%;
-    margin: 6vw auto;
-    display: flex;
-    justify-content: space-between;
+    width: 18%;
+    height: 50%;
+    top: 18vh;
+    left: 2vw;
 }
 
 .filters{
     width: 13vw;
-    height: 15vw;
+    height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     color: blanchedalmond;
-    margin-left: 5vw;
-    margin-top: 4vw;
     /* background-color: pink; */
 }
 
@@ -130,6 +175,19 @@ nav span {
     background-repeat: no-repeat;
     /* background-color: violet; */
 }
+
+.pet-container{
+    width: 85%;
+    height: 25vw;
+    background-image: url(img/pet-frame/evolution-txt.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 61%;
+    margin: 6vw auto;
+    display: flex;
+    justify-content: space-between;
+}
+
 
 .plant-filter {
     background-image: url(img/elements/plant.png);
