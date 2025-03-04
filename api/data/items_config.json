@@ -1,0 +1,210 @@
+{
+  "plant": {
+      "food": {
+        "hunger": {
+          "rice": {
+            "min": 5,
+            "max": 20
+          },
+          "tea": {
+            "min": 5,
+            "max": 20
+          },
+          "coffee": {
+            "min": 5,
+            "max": 20
+          },
+          "bug": {
+            "min": 5,
+            "max": 20
+          },
+          "biscuit": {
+            "min": 5,
+            "max": 20
+          },
+          "chicken_wing": {
+            "min": 5,
+            "max": 20
+          }
+        },
+        "sickness": {
+          "rice": 10,
+          "tea": 10,
+          "coffee": 10,
+          "bug": 10,
+          "biscuit": 10,
+          "chicken_wing": 10
+        }
+      },
+      "toy": {
+        "happiness": {
+          "ball": 10,
+          "mouse": 10,
+          "socks": 10,
+          "piglet": 10
+        },
+        "danger": {
+          "ball": 10,
+          "mouse": 10,
+          "socks": 10,
+          "piglet": 10
+        }
+      }
+  },
+  "dirt": {
+    "food": {
+      "hunger": {
+        "rice": {
+          "min": 5,
+          "max": 20
+        },
+        "tea": {
+          "min": 5,
+          "max": 20
+        },
+        "coffee": {
+          "min": 5,
+          "max": 20
+        },
+        "bug": {
+          "min": 5,
+          "max": 20
+        },
+        "biscuit": {
+          "min": 5,
+          "max": 20
+        },
+        "chicken_wing": {
+          "min": 5,
+          "max": 20
+        }
+      },
+      "sickness": {
+        "rice": 10,
+        "tea": 10,
+        "coffee": 10,
+        "bug": 10,
+        "biscuit": 10,
+        "chicken_wing": 10
+      }
+    },
+    "toy": {
+      "happiness": {
+        "ball": 10,
+        "mouse": 10,
+        "socks": 10,
+        "piglet": 10
+      },
+      "danger": {
+        "ball": 10,
+        "mouse": 10,
+        "socks": 10,
+        "piglet": 10
+      }
+    }
+  },
+  "demon": {
+    "food": {
+      "hunger": {
+        "rice": {
+          "min": 5,
+          "max": 20
+        },
+        "tea": {
+          "min": 5,
+          "max": 20
+        },
+        "coffee": {
+          "min": 5,
+          "max": 20
+        },
+        "bug": {
+          "min": 5,
+          "max": 20
+        },
+        "biscuit": {
+          "min": 5,
+          "max": 20
+        },
+        "chicken_wing": {
+          "min": 5,
+          "max": 20
+        }
+      },
+      "sickness": {
+        "rice": 10,
+        "tea": 10,
+        "coffee": 10,
+        "bug": 10,
+        "biscuit": 10,
+        "chicken_wing": 10
+      }
+    },
+    "toy": {
+      "happiness": {
+        "ball": 10,
+        "mouse": 10,
+        "socks": 10,
+        "piglet": 10
+      },
+      "danger": {
+        "ball": 10,
+        "mouse": 10,
+        "socks": 10,
+        "piglet": 10
+      }
+    }
+  },
+  "ghost": {
+    "food": {
+      "hunger": {
+        "rice": {
+          "min": 5,
+          "max": 20
+        },
+        "tea": {
+          "min": 5,
+          "max": 20
+        },
+        "coffee": {
+          "min": 5,
+          "max": 20
+        },
+        "bug": {
+          "min": 5,
+          "max": 20
+        },
+        "biscuit": {
+          "min": 5,
+          "max": 20
+        },
+        "chicken_wing": {
+          "min": 5,
+          "max": 20
+        }
+      },
+      "sickness": {
+        "rice": 10,
+        "tea": 10,
+        "coffee": 10,
+        "bug": 10,
+        "biscuit": 10,
+        "chicken_wing": 10
+      }
+    },
+    "toy": {
+      "happiness": {
+        "ball": 10,
+        "mouse": 10,
+        "socks": 10,
+        "piglet": 10
+      },
+      "danger": {
+        "ball": 10,
+        "mouse": 10,
+        "socks": 10,
+        "piglet": 10
+      }
+    }
+  }
+}
