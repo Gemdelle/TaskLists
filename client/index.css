@@ -120,12 +120,27 @@ a:hover {
     transform: rotate(180deg);
 }
 
-.instructions-container{
+.instructions-container-1{
     height: 90vh;
     width: 90%;
     margin: 0 auto;
     margin-top: 5vh;
     background-image: url(img/instructions/instructions-1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* background-color: violet; */
+}
+
+.instructions-container-2{
+    height: 90vh;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5vh;
+    background-image: url(img/instructions/instructions-2.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center bottom;
