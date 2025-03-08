@@ -7,7 +7,7 @@
   </head>
   <body>
     <nav>
-        <a href="adoption.html">Adoption</a>
+        <a href="index.html">Adoption</a>
         <a href="commands.html">Commands</a>
         <a href="owners.html">Owners</a>
         <a href="my-eskel.html">My Eskel</a>
@@ -17,7 +17,7 @@
     </nav>
     
     <div class="paw-bg"></div>
-    <div class="instructions-container">
+    <div class="instructions-container-1">
       <div class="title"></div>
       <div class="arrow"></div>
       <div class="filters">
@@ -295,6 +295,19 @@
                         console.error('Error:', error);
                     });
             });
+        });
+
+        const arrow = document.querySelector(".arrow");
+        let step = 1;
+
+        arrow.addEventListener("click", function () {
+          const instructionsContainer = document.querySelector(`.instructions-container-${step}`);
+          instructionsContainer.classList.remove(`instructions-container-${step}`);
+
+          step++;
+          if (step > 2) step = 1;
+
+          instructionsContainer.classList.add(`instructions-container-${step}`);
         });
       });
     </script>
