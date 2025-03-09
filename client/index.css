@@ -372,9 +372,178 @@ a:hover {
     transform-origin: bottom center; /* Set pivot point to the bottom center */
 }
 
+.pet-plant-9 .pet-img {
+    background-image: url(img/pets/pet-9.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-plant-10 .pet-img {
+    background-image: url(img/pets/pet-10.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
 .pet-ghost .pet-img {
     background-image: url(img/pets/pet-2.png);
     height: 45%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-6 .pet-img {
+    background-image: url(img/pets/pet-6.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-7 .pet-img {
+    background-image: url(img/pets/pet-7.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-8 .pet-img {
+    background-image: url(img/pets/pet-8.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-12 .pet-img {
+    background-image: url(img/pets/pet-12.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-16 .pet-img {
+    background-image: url(img/pets/pet-16.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-17 .pet-img {
+    background-image: url(img/pets/pet-17.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-21 .pet-img {
+    background-image: url(img/pets/pet-21.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-22 .pet-img {
+    background-image: url(img/pets/pet-22.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-23 .pet-img {
+    background-image: url(img/pets/pet-23.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-24 .pet-img {
+    background-image: url(img/pets/pet-24.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-ghost-25 .pet-img {
+    background-image: url(img/pets/pet-25.png);
+    height: 55%;
     width: 50%;
     background-position: center;
     background-size: contain;
@@ -398,9 +567,140 @@ a:hover {
     transform-origin: bottom center; /* Set pivot point to the bottom center */
 }
 
+.pet-dirt-13 .pet-img {
+    background-image: url(img/pets/pet-13.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-dirt-18 .pet-img {
+    background-image: url(img/pets/pet-18.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-dirt-19 .pet-img {
+    background-image: url(img/pets/pet-19.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-dirt-20 .pet-img {
+    background-image: url(img/pets/pet-20.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-dirt-26 .pet-img {
+    background-image: url(img/pets/pet-26.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
 .pet-demon .pet-img {
     background-image: url(img/pets/pet-4.png);
     height: 45%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-demon-5 .pet-img {
+    background-image: url(img/pets/pet-5.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-demon-11 .pet-img {
+    background-image: url(img/pets/pet-11.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-demon-14 .pet-img {
+    background-image: url(img/pets/pet-14.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+.pet-demon-15 .pet-img {
+    background-image: url(img/pets/pet-15.png);
+    height: 55%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 1vw;
+    /* border: 2px solid white; */
+    transition: all 1s ease-in-out; /* Smooth transition for transform */
+    transform-origin: bottom center; /* Set pivot point to the bottom center */
+}
+
+
+.pet-demon-27 .pet-img {
+    background-image: url(img/pets/pet-27.png);
+    height: 55%;
     width: 50%;
     background-position: center;
     background-size: contain;
@@ -438,90 +738,205 @@ a:hover {
     align-items: center;
 }
 
+.pet-plant-9 .base,
+.pet-plant-10 .base,
 .pet-plant .base{
     background-image: url(img/pet-frame/black-plant-1.png);
 }
 
+.pet-plant-9 .evolution1,
+.pet-plant-10 .evolution1,
 .pet-plant .evolution1{
     background-image: url(img/pet-frame/white-plant-2.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-plant-9 .evolution1:hover,
+.pet-plant-10 .evolution1:hover,
 .pet-plant .evolution1:hover {
     background-image: url(img/pet-frame/black-plant-2.png);
 }
 
+.pet-plant-9 .evolution2,
+.pet-plant-10 .evolution2,
 .pet-plant .evolution2{
     background-image: url(img/pet-frame/white-plant-3.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-plant-9 .evolution2:hover,
+.pet-plant-10 .evolution2:hover,
 .pet-plant .evolution2:hover{
     background-image: url(img/pet-frame/black-plant-3.png);
 }
 
+.pet-demon-5 .base,
+.pet-demon-11 .base,
+.pet-demon-14 .base,
+.pet-demon-15 .base,
+.pet-demon-27 .base,
 .pet-demon .base{
     background-image: url(img/pet-frame/black-demon-1.png);
 }
 
+.pet-demon-5 .evolution1,
+.pet-demon-11 .evolution1,
+.pet-demon-14 .evolution1,
+.pet-demon-15 .evolution1,
+.pet-demon-27 .evolution1,
 .pet-demon .evolution1{
     background-image: url(img/pet-frame/white-demon-2.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-demon-5 .evolution1:hover,
+.pet-demon-11 .evolution1:hover,
+.pet-demon-14 .evolution1:hover,
+.pet-demon-15 .evolution1:hover,
+.pet-demon-27 .evolution1:hover,
 .pet-demon .evolution1:hover {
     background-image: url(img/pet-frame/black-demon-2.png);
 }
 
+.pet-demon-5 .evolution2,
+.pet-demon-11 .evolution2,
+.pet-demon-14 .evolution2,
+.pet-demon-15 .evolution2,
+.pet-demon-27 .evolution2,
 .pet-demon .evolution2{
     background-image: url(img/pet-frame/white-demon-3.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-demon-5 .evolution2:hover,
+.pet-demon-11 .evolution2:hover,
+.pet-demon-14 .evolution2:hover,
+.pet-demon-15 .evolution2:hover,
+.pet-demon-27 .evolution2:hover,
 .pet-demon .evolution2:hover{
     background-image: url(img/pet-frame/black-demon-3.png);
 }
 
+.pet-ghost-6 .base,
+.pet-ghost-7 .base,
+.pet-ghost-8 .base,
+.pet-ghost-12 .base,
+.pet-ghost-16 .base,
+.pet-ghost-17 .base,
+.pet-ghost-21 .base,
+.pet-ghost-22 .base,
+.pet-ghost-23 .base,
+.pet-ghost-24 .base,
+.pet-ghost-25 .base,
 .pet-ghost .base{
     background-image: url(img/pet-frame/black-ghost-1.png);
 }
 
+.pet-ghost-6 .evolution1,
+.pet-ghost-7 .evolution1,
+.pet-ghost-8 .evolution1,
+.pet-ghost-12 .evolution1,
+.pet-ghost-16 .evolution1,
+.pet-ghost-17 .evolution1,
+.pet-ghost-21 .evolution1,
+.pet-ghost-22 .evolution1,
+.pet-ghost-23 .evolution1,
+.pet-ghost-24 .evolution1,
+.pet-ghost-25 .evolution1,
 .pet-ghost .evolution1{
     background-image: url(img/pet-frame/white-ghost-2.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-ghost-6 .evolution1:hover,
+.pet-ghost-7 .evolution1:hover,
+.pet-ghost-8 .evolution1:hover,
+.pet-ghost-12 .evolution1:hover,
+.pet-ghost-16 .evolution1:hover,
+.pet-ghost-17 .evolution1:hover,
+.pet-ghost-21 .evolution1:hover,
+.pet-ghost-22 .evolution1:hover,
+.pet-ghost-23 .evolution1:hover,
+.pet-ghost-24 .evolution1:hover,
+.pet-ghost-25 .evolution1:hover,
 .pet-ghost .evolution1:hover {
     background-image: url(img/pet-frame/black-ghost-2.png);
 }
 
+.pet-ghost-6 .evolution2,
+.pet-ghost-7 .evolution2,
+.pet-ghost-8 .evolution2,
+.pet-ghost-12 .evolution2,
+.pet-ghost-16 .evolution2,
+.pet-ghost-17 .evolution2,
+.pet-ghost-21 .evolution2,
+.pet-ghost-22 .evolution2,
+.pet-ghost-23 .evolution2,
+.pet-ghost-24 .evolution2,
+.pet-ghost-25 .evolution2,
 .pet-ghost .evolution2{
     background-image: url(img/pet-frame/white-ghost-3.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-ghost-6 .evolution2:hover,
+.pet-ghost-7 .evolution2:hover,
+.pet-ghost-8 .evolution2:hover,
+.pet-ghost-12 .evolution2:hover,
+.pet-ghost-16 .evolution2:hover,
+.pet-ghost-17 .evolution2:hover,
+.pet-ghost-21 .evolution2:hover,
+.pet-ghost-22 .evolution2:hover,
+.pet-ghost-23 .evolution2:hover,
+.pet-ghost-24 .evolution2:hover,
+.pet-ghost-25 .evolution2:hover,
 .pet-ghost .evolution2:hover{
     background-image: url(img/pet-frame/black-ghost-3.png);
 }
 
+.pet-dirt-13 .base,
+.pet-dirt-18 .base,
+.pet-dirt-19 .base,
+.pet-dirt-20 .base,
+.pet-dirt-26 .base,
 .pet-dirt .base{
     background-image: url(img/pet-frame/black-dirt-1.png);
 }
 
+.pet-dirt-13 .evolution1,
+.pet-dirt-18 .evolution1,
+.pet-dirt-19 .evolution1,
+.pet-dirt-20 .evolution1,
+.pet-dirt-26 .evolution1,
 .pet-dirt .evolution1{
     background-image: url(img/pet-frame/white-dirt-2.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-dirt-13 .evolution1:hover,
+.pet-dirt-18 .evolution1:hover,
+.pet-dirt-19 .evolution1:hover,
+.pet-dirt-20 .evolution1:hover,
+.pet-dirt-26 .evolution1:hover,
 .pet-dirt .evolution1:hover {
     background-image: url(img/pet-frame/black-dirt-2.png);
 }
 
+.pet-dirt-13 .evolution2,
+.pet-dirt-18 .evolution2,
+.pet-dirt-19 .evolution2,
+.pet-dirt-20 .evolution2,
+.pet-dirt-26 .evolution2,
 .pet-dirt .evolution2 {
     background-image: url(img/pet-frame/white-dirt-3.png);
     transition: all 1s ease-in-out;
 }
 
+.pet-dirt-13 .evolution2:hover,
+.pet-dirt-18 .evolution2:hover,
+.pet-dirt-19 .evolution2:hover,
+.pet-dirt-20 .evolution2:hover,
+.pet-dirt-26 .evolution2:hover,
 .pet-dirt .evolution2:hover{
     background-image: url(img/pet-frame/black-dirt-3.png);
 }
@@ -564,7 +979,7 @@ a:hover {
     width: 60%;
     background-color: transparent !important;
     border: none !important;
-    background-image: url(/TaskLists/client/img/title-container.png);
+    background-image: url(img/title-container.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
