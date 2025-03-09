@@ -564,7 +564,7 @@ a:hover {
     width: 60%;
     background-color: transparent !important;
     border: none !important;
-    background-image: url(/TaskLists/client/img/title-container.png);
+    background-image: url(img/title-container.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
