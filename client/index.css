@@ -321,18 +321,41 @@ a:hover {
   }
 }
 
+.pet-plant-9 .element,
+.pet-plant-10 .element,
 .pet-plant .element {
     background-image: url(img/elements/plant.png);
 }
 
+.pet-ghost-6 .element,
+.pet-ghost-7 .element,
+.pet-ghost-8 .element,
+.pet-ghost-12 .element,
+.pet-ghost-16 .element,
+.pet-ghost-17 .element,
+.pet-ghost-21 .element,
+.pet-ghost-22 .element,
+.pet-ghost-23 .element,
+.pet-ghost-24 .element,
+.pet-ghost-25 .element,
 .pet-ghost .element {
     background-image: url(img/elements/ghost.png);
 }
 
+.pet-demon-5 .element,
+.pet-demon-11 .element,
+.pet-demon-14 .element,
+.pet-demon-15 .element,
+.pet-demon-27 .element,
 .pet-demon .element {
     background-image: url(img/elements/demon.png);
 }
 
+.pet-dirt-13 .element,
+.pet-dirt-18 .element,
+.pet-dirt-19 .element,
+.pet-dirt-20 .element,
+.pet-dirt-26 .element,
 .pet-dirt .element {
     background-image: url(img/elements/dirt.png);
 }
@@ -711,6 +734,30 @@ a:hover {
     transform-origin: bottom center; /* Set pivot point to the bottom center */
 }
 
+
+.pet-dirt-13 .pet-img:hover,
+.pet-dirt-18 .pet-img:hover,
+.pet-dirt-19 .pet-img:hover,
+.pet-dirt-20 .pet-img:hover,
+.pet-dirt-26 .pet-img:hover,
+.pet-ghost-6 .pet-img:hover,
+.pet-ghost-7 .pet-img:hover,
+.pet-ghost-8 .pet-img:hover,
+.pet-ghost-12 .pet-img:hover,
+.pet-ghost-16 .pet-img:hover,
+.pet-ghost-17 .pet-img:hover,
+.pet-ghost-21 .pet-img:hover,
+.pet-ghost-22 .pet-img:hover,
+.pet-ghost-23 .pet-img:hover,
+.pet-ghost-24 .pet-img:hover,
+.pet-ghost-25 .pet-img:hover,
+.pet-demon-5 .pet-img:hover,
+.pet-demon-11 .pet-img:hover,
+.pet-demon-14 .pet-img:hover,
+.pet-demon-15 .pet-img:hover,
+.pet-demon-27 .pet-img:hover,
+.pet-plant-9 .pet-img:hover,
+.pet-plant-10 .pet-img:hover,
 .pet-plant .pet-img:hover,
 .pet-ghost .pet-img:hover,
 .pet-dirt .pet-img:hover,
