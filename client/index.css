@@ -30,7 +30,7 @@ nav {
     top: 1vw;
     right: 1vw;
     position: fixed;
-    width: 45%;
+    width: 41%;
     height: 12%;
     /* background-color: rebeccapurple; */
     margin: 0;
@@ -46,10 +46,11 @@ nav {
 
 nav a {
     margin: 0 1vw;
-    font-size: 1.8vw;
+    font-size: 1.4vw;
     color: antiquewhite;
     text-decoration: none;
     transition: all 300ms ease-in-out;
+    letter-spacing: 0.1vw;
 }
 
 nav a:first-child {
@@ -222,14 +223,11 @@ a:hover {
 
 .pet-container{
     width: 85%;
-    height: 25vw;
-    background-image: url(img/pet-frame/evolution-txt.png);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 61%;
-    margin: 6vw auto;
+    height: 26vw;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* background-color: red; */
 }
 
 
@@ -256,13 +254,13 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .id-container {
     /* background-color: red; */
-    height: 35%;
-    width: 100%;
+    height: 25%;
+    width: 80%;
     background-image: url(img/title-container.png);
     background-size: contain;
     background-position: center;
@@ -272,6 +270,7 @@ a:hover {
     align-items: center;
     font-size: 1.5vw;
     color: blanchedalmond;
+    margin: 2vw;
 }
 
 .type-container {
@@ -281,9 +280,10 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: blanchedalmond;
     letter-spacing: 0.2vw;
+    margin-bottom: 0.8vw;
 }
 
 .data {
@@ -295,8 +295,8 @@ a:hover {
     background-position: top;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 30%;
-    width: 90%;
+    height: 20%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -339,9 +339,9 @@ a:hover {
 
 .frame {
     /* background-color: pink; */
-    width: 25%;
+    width: 22%;
     height: 100%;
-    background-size: 100%;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -361,7 +361,7 @@ a:hover {
 
 .pet-plant .pet-img {
     background-image: url(img/pets/pet-1.png);
-    height: 55%;
+    height: 45%;
     width: 50%;
     background-position: center;
     background-size: contain;
@@ -374,7 +374,7 @@ a:hover {
 
 .pet-ghost .pet-img {
     background-image: url(img/pets/pet-2.png);
-    height: 55%;
+    height: 45%;
     width: 50%;
     background-position: center;
     background-size: contain;
@@ -387,7 +387,7 @@ a:hover {
 
 .pet-dirt .pet-img {
     background-image: url(img/pets/pet-3.png);
-    height: 55%;
+    height: 45%;
     width: 50%;
     background-position: center;
     background-size: contain;
@@ -400,7 +400,7 @@ a:hover {
 
 .pet-demon .pet-img {
     background-image: url(img/pets/pet-4.png);
-    height: 55%;
+    height: 45%;
     width: 50%;
     background-position: center;
     background-size: contain;
@@ -517,7 +517,7 @@ a:hover {
     background-image: url(img/pet-frame/black-dirt-2.png);
 }
 
-.pet-dirt .evolution2{
+.pet-dirt .evolution2 {
     background-image: url(img/pet-frame/white-dirt-3.png);
     transition: all 1s ease-in-out;
 }
@@ -533,6 +533,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 5%;
 }
 
 .adoption span {
