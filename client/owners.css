@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-.commands-container {
+.owners-container {
     width: 80vw;
     height: 90vh;
     /* background-color: red; */
@@ -28,23 +28,11 @@ body {
     100% { transform: translateY(0); }
   }
 
-.commands-title {
-    position: absolute;
-    width: 12%;
-    height: 22%;
-    /* background-color: red; */
-    left: 18vw;
-    top: 1vw;
-    background-image: url(img/commands-title.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    animation: float 5s ease-in-out infinite;
-}
-
-.command-list {
-    width: 80%;
-    height: 70%;
-    background-color: red;
-    margin-bottom: 4vh;
+span {
+    font-size: 2vw;
+    margin: 0 auto;
+    color: rgb(111, 122, 111);
+    letter-spacing: 0.5vw;
+    animation: float 2s ease-in-out infinite;
+    text-align: center;
 }
