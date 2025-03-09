@@ -1,0 +1,11 @@
+.commands-container {
+    width: 80vw;
+    height: 90vh;
+    /* background-color: red; */
+    margin: 0 auto;
+    margin-top: 8vh;
+    background-image: url(img/bg-commands.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
